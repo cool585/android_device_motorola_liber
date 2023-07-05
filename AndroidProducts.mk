@@ -15,9 +15,9 @@
 #
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/lineage_liber.mk
+    $(LOCAL_DIR)/superior_liber.mk
 
 COMMON_LUNCH_CHOICES := \
-    lineage_liber-eng \
-    lineage_liber-user \
-    lineage_liber-userdebug
+    superior_liber-eng \
+    superior_liber-user \
+    superior_liber-userdebug

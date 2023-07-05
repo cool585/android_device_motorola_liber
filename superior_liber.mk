@@ -21,11 +21,16 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 # Inherit from liber device
 $(call inherit-product, device/motorola/liber/device.mk)
 
-# Inherit some common Lineage stuff.
-$(call inherit-product, vendor/lineage/config/common_full_phone.mk)
+# Inherit some common superior stuff.
+$(call inherit-product, vendor/superior/config/common.mk)
+TARGET_BOOT_ANIMATION_RES := 1080
+
+# Official SuperiorOS
+SUPERIOR_OFFICIAL := true
+DEVICE_MAINTAINERS="Dhinesh"
 
 # Device identifier. This must come after all inclusions.
-PRODUCT_NAME := lineage_liber
+PRODUCT_NAME := superior_liber
 PRODUCT_DEVICE := liber
 PRODUCT_BRAND := motorola
 PRODUCT_MODEL := Motorola One Fusion+
