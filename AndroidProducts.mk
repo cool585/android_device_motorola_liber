@@ -15,9 +15,9 @@
 #
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/aosp_liber.mk
+    $(LOCAL_DIR)/lineage_liber.mk
 
 COMMON_LUNCH_CHOICES := \
-    aosp_liber-eng \
-    aosp_liber-user \
-    aosp_liber-userdebug
+    lineage_liber-eng \
+    lineage_liber-user \
+    lineage_liber-userdebug
