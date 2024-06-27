@@ -13,7 +13,7 @@ vendor/etc/acdbdata/adsp_avs_config.acdb
 
 # Audio - Prebuilt
 vendor/lib/hw/audio.primary.sm6150.so
-vendor/lib/vndk/libtinyalsa.so
+vendor/lib/vndk/libtinyalsa.so:vendor/lib/libtinyalsa.so
 vendor/lib/libmotaudioutils.so
 vendor/lib/libtinycompress_vendor.so
 
