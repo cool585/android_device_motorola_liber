@@ -1,7 +1,7 @@
 #!/bin/bash
 #
-# Copyright (C) 2016 The CyanogenMod Project
-# Copyright (C) 2017-2020 The LineageOS Project
+# SPDX-FileCopyrightText: 2016 The CyanogenMod Project
+# SPDX-FileCopyrightText: 2017-2024 The LineageOS Project
 #
 # SPDX-License-Identifier: Apache-2.0
 #
@@ -17,11 +17,6 @@ set -e
 export DEVICE=liber
 export DEVICE_COMMON=sm6150-common
 export VENDOR=motorola
+export VENDOR_COMMON=${VENDOR}
 
-"./../../${VENDOR}/${DEVICE_COMMON}/extract-files.sh" "$@"
-
-MY_DIR="${BASH_SOURCE%/*}"
-if [[ ! -d "$MY_DIR" ]]; then MY_DIR="$PWD"; fi
-
-ANDROID_ROOT="$MY_DIR"/../../..
-BLOB_ROOT="$ANDROID_ROOT"/vendor/"$VENDOR"/"$DEVICE"/proprietary
+"./../../${VENDOR_COMMON}/${DEVICE_COMMON}/extract-files.sh" "$@"
