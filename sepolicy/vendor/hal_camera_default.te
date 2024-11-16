@@ -11,6 +11,10 @@ get_prop(hal_camera_default, media_variant_prop)
 get_prop(hal_camera_default, surfaceflinger_display_prop)
 set_prop(hal_camera_default, moto_boot_prop)
 set_prop(hal_camera_default, moto_camera_config_prop)
+allow hal_camera_default vendor_imager_data_file:dir rw_dir_perms;
+allow hal_camera_default vendor_imager_data_file:file rw_file_perms;
+allow hal_camera_default vendor_imager_metadata_file:dir rw_dir_perms;
+allow hal_camera_default vendor_imager_metadata_file:file rw_file_perms;
 
 # MotCamera3
 allow hal_camera_default power_supply:dir search;
