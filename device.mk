@@ -35,6 +35,7 @@ DEVICE_PACKAGE_OVERLAYS += \
 
 PRODUCT_PACKAGES += \
     ApertureOverlayLiber \
+    LineageSdkGoogleAssistantKey \
     FrameworksResLiber \
     SettingsResLiber \
     SystemUIResLiber
