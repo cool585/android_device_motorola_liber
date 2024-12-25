@@ -9,10 +9,9 @@
 function blob_fixup() {
     case "${1}" in
     # Rename camera.mot.is.coming.cts
-    vendor/lib64/com.qti.feature2.gs.so | \
-        vendor/lib64/com.qti.feature2.gs.bitra.so | \
-        vendor/lib64/hw/com.qti.chi.override.so | \
-        vendor/lib64/hw/com.qti.chi.override.bitra.so)
+    vendor/lib64/camera/components/com.qti.node.gpu.so | \
+        vendor/lib64/hw/camera.qcom.so | \
+        vendor/lib64/hw/com.qti.chi.override.so)
         sed -i "s/camera.mot.is.coming.cts/vendor.camera.coming.cts/g" "${2}"
         ;;
     esac

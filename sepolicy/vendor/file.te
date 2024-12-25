@@ -1,6 +1,11 @@
 # Popup
 type sysfs_popup, sysfs_type, fs_type;
 
+# Power
+type power_supply, sysfs_type, fs_type;
+
 # Imager
 type vendor_imager_data_file, file_type, data_file_type;
 type vendor_imager_metadata_file, file_type, data_file_type;
+type moto_boot_prop, sysfs_type, fs_type;
+type moto_camera_config_prop, sysfs_type, fs_type;
