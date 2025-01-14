@@ -14,10 +14,10 @@
 // limitations under the License.
 
 cc_binary {
-    name: "android.hardware.lights-service.hanoip",
+    name: "android.hardware.lights-service.liber",
     relative_install_path: "hw",
-    init_rc: ["android.hardware.lights.hanoip.rc"],
-    vintf_fragments: ["android.hardware.lights.hanoip.xml"],
+    init_rc: ["android.hardware.lights.liber.rc"],
+    vintf_fragments: ["android.hardware.lights.liber.xml"],
     vendor: true,
     shared_libs: [
         "libbase",

@@ -1,4 +1,5 @@
 runtime_resource_overlay {
-    name: "SystemUIResHanoip",
+    name: "SystemUIResLiber",
+    sdk_version: "current",
     vendor: true
 }

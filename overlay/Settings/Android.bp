@@ -4,6 +4,7 @@
 //
 
 runtime_resource_overlay {
-    name: "SettingsResHanoip",
+    name: "SettingsResLiber",
+    sdk_version: "current",
     vendor: true,
 }

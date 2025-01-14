@@ -1,19 +1,19 @@
-# Motorola G60/G40 Fusion
+# Motorola One Fusion+
 
 ## Device specifications
 
 Basic   | Spec Sheet
 -------:|:-------------------------
-CPU     | Octa-core (2x2.3 GHz Kryo 470 Gold & 6x1.8 GHz Kryo 470 Silver)
-CHIPSET | Qualcomm Snapdragon 732G
+CPU     | Octa-core (2x2.2 GHz Kryo 470 Gold & 6x1.8 GHz Kryo 470 Silver)
+CHIPSET | Qualcomm SDM730 Snapdragon 730/730G
 GPU     | Adreno 618
 Memory  | 4 / 6GB
-Shipped Android Version | 11
-Storage | 64 / 128GB
-Battery | 6000 mAh
-Dimensions | 169.6 x 75.9 x 9.7 mm
-Display | 1080 x 2460 pixels, 6.8" IPS LCD
-Rear Camera  | 64 MP, f/1.7 (wide), 0.7µm, PDAF + 8 MP, f/2.2, 118˚ (ultrawide), 1/4.0", 1.12µm + 2 MP, f/2.4, (depth)
-Front Camera | 16 MP, f/2.2, (wide), 1.0µm
+Shipped Android Version | 10
+Storage | 128GB
+Battery | 5000 mAh
+Dimensions | 162.9 x 76.4 x 9.6 mm
+Display | 1080 x 2340 pixels, 6.5" IPS LCD
+Rear Camera  | 64 MP (f/1.8, wide, PADF) + 8 MP (f/2.2, ultrawide) + 5MP (f/2.2, marcro) + 2MP (f/2.2, depth) HDR
+Front Camera | 16 MP (f/2.0)
 
-![Device Picture](https://motorolain.vtexassets.com/arquivos/ids/157377-1200-auto?width=1200&height=auto&aspect=true)
+![Device Picture](https://brmotorolanew.vtexassets.com/arquivos/ids/157737/Smartphone-Motorola-one-fusion-plus-128gb-Imagem-Frontal-Curvada-Branco-Prisma.png?v=637533037565870000)
