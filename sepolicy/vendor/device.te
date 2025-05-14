@@ -1,5 +1,6 @@
 # Fingerprint 
 type fingerprint_device, dev_type;
+type vendor_hal_fingerprint_fpc, domain;
 
 # VL53L1
 type vl53l1_device, dev_type;
