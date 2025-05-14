@@ -19,8 +19,8 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 TARGET_SUPPORTS_OMX_SERVICE := false
 
-# Inherit from hanoip device
-$(call inherit-product, device/motorola/hanoip/device.mk)
+# Inherit from liber device
+$(call inherit-product, device/motorola/liber/device.mk)
 
 # Inherit some common Lineage stuff.
 $(call inherit-product, vendor/lineage/config/common_full_phone.mk)
@@ -33,8 +33,8 @@ $(call inherit-product, vendor/lineage/config/common_full_phone.mk)
 # TARGET_ENABLE_BLUR := true
 
 # Device identifier. This must come after all inclusions.
-PRODUCT_NAME := lineage_hanoip
-PRODUCT_DEVICE := hanoip
+PRODUCT_NAME := lineage_liber
+PRODUCT_DEVICE := liber
 PRODUCT_BRAND := motorola
 PRODUCT_MODEL := moto g(60)
 PRODUCT_MANUFACTURER := motorola
@@ -50,6 +50,6 @@ PRODUCT_GMS_CLIENTID_BASE := android-motorola
 
 # Build info
 PRODUCT_BUILD_PROP_OVERRIDES += \
-    BuildDesc="hanoip_retail-user 11 S2RI32.32-20-9-9-2 1591b release-keys" \
-    BuildFingerprint=motorola/hanoip_retail/hanoip:11/S2RI32.32-20-9-9-2/1591b:user/release-keys \
-    DeviceProduct=hanoip_retail
+    BuildDesc="liber_retail-user 11 RPIS31.Q2-42-25-1 19a8e release-keys" \
+    BuildFingerprint=motorola/liber_retail/liber:11/RPIS31.Q2-42-25-1/19a8e:user/release-keys \
+    DeviceProduct=liber_retail

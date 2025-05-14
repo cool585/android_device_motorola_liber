@@ -15,7 +15,7 @@
 #
 
 BOARD_VENDOR := motorola
-DEVICE_PATH := device/motorola/hanoip
+DEVICE_PATH := device/motorola/liber
 
 # Architecture
 TARGET_ARCH := arm64
@@ -34,22 +34,21 @@ AB_OTA_UPDATER := true
 
 AB_OTA_PARTITIONS += \
     boot \
-    vendor_boot \
     dtbo \
+    recovery \
     product \
     system \
     system_ext \
     vendor \
-    vbmeta \
-    vbmeta_system
+    vbmeta
 
 # Bootloader
-TARGET_BOOTLOADER_BOARD_NAME := hanoip
+TARGET_BOOTLOADER_BOARD_NAME := liber
 TARGET_BOARD_INFO_FILE := $(DEVICE_PATH)/board-info.txt
 TARGET_NO_BOOTLOADER := true
 
 # Kernel
-BOARD_BOOT_HEADER_VERSION := 3
+BOARD_BOOT_HEADER_VERSION := 2
 BOARD_KERNEL_BASE := 0x00000000
 BOARD_KERNEL_CMDLINE := \
     console=ttyMSM0,115200n8 \
@@ -73,7 +72,15 @@ BOARD_MKBOOTIMG_ARGS += --header_version $(BOARD_BOOT_HEADER_VERSION)
 TARGET_KERNEL_ARCH := arm64
 TARGET_KERNEL_SOURCE := kernel/motorola/sm6150
 TARGET_KERNEL_CONFIG := \
-    vendor/hanoip_defconfig
+    vendor/liber_defconfig
+
+# Kernel modules - Audio
+TARGET_MODULE_ALIASES += \
+    snd-soc-aw882xx.ko:snd_smartpa_aw882xx.ko \
+    snd-soc-cs35l41.ko:cirrus_cs35l41.ko \
+    snd-soc-wm-adsp.ko:cirrus_wm_adsp.ko \
+    wcd_spi_dlkm.ko:audio_wcd_spi.ko \
+    wcd934x_dlkm.ko:audio_wcd934x.ko
 
 # Platform
 BOARD_USES_QCOM_HARDWARE := true
@@ -111,7 +118,7 @@ WITH_DEXPREOPT_BOOT_IMG_AND_SYSTEM_SERVER_ONLY ?= true
 # Display
 TARGET_GRALLOC_HANDLE_HAS_RESERVED_SIZE := true
 NUM_FRAMEBUFFER_SURFACE_BUFFERS := 3
-TARGET_SCREEN_DENSITY := 400
+TARGET_SCREEN_DENSITY := 420
 
 # DRM
 TARGET_ENABLE_MEDIADRM_64 := true
@@ -147,10 +154,6 @@ TARGET_USES_ION := true
 # Metadata
 BOARD_USES_METADATA_PARTITION := true
 
-# NFC / ODM
-ODM_MANIFEST_SKUS := nfc
-ODM_MANIFEST_NFC_FILES := device/motorola/hanoip/odm_manifest_nfc.xml
-
 # Partitions
 BOARD_PRODUCTIMAGE_FILE_SYSTEM_TYPE := ext4
 BOARD_SYSTEMIMAGE_FILE_SYSTEM_TYPE := ext4
@@ -158,9 +161,9 @@ BOARD_SYSTEM_EXTIMAGE_FILE_SYSTEM_TYPE := ext4
 BOARD_VENDORIMAGE_FILE_SYSTEM_TYPE := ext4
 
 BOARD_BOOTIMAGE_PARTITION_SIZE := 67108864
-BOARD_DTBOIMG_PARTITION_SIZE := 8388608
+BOARD_DTBOIMG_PARTITION_SIZE := 25165824
+BOARD_RECOVERYIMAGE_PARTITION_SIZE := 67108864
 BOARD_FLASH_BLOCK_SIZE := 262144 # (BOARD_KERNEL_PAGESIZE * 64)
-BOARD_VENDOR_BOOTIMAGE_PARTITION_SIZE := $(BOARD_BOOTIMAGE_PARTITION_SIZE)
 ifeq ($(WITH_GMS),true)
 BOARD_PRODUCTIMAGE_PARTITION_RESERVED_SIZE := 104857600
 BOARD_SYSTEMIMAGE_PARTITION_RESERVED_SIZE := 104857600
@@ -188,8 +191,6 @@ TARGET_RECOVERY_PIXEL_FORMAT := RGBX_8888
 TARGET_USERIMAGES_USE_EXT4 := true
 TARGET_USERIMAGES_USE_F2FS := true
 TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/init/fstab.qcom
-TARGET_NO_RECOVERY := true
-BOARD_USES_RECOVERY_AS_BOOT := true
 
 # RIL
 ENABLE_VENDOR_RIL_SERVICE := true

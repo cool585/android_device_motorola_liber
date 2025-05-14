@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-#define LOG_TAG "android.hardware.lights-service.hanoip"
+#define LOG_TAG "android.hardware.lights-service.liber"
 
 #include "Lights.h"
 #include <android-base/file.h>

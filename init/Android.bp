@@ -4,12 +4,6 @@
 //
 
 // Init scripts
-prebuilt_etc {
-    name: "init.hanoip.rc",
-    src: "init.hanoip.rc",
-    sub_dir: "init/hw",
-    vendor: true,
-}
 
 prebuilt_etc {
     name: "init.mmi.overlay.rc",

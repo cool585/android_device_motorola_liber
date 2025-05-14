@@ -4,6 +4,6 @@
 //
 
 runtime_resource_overlay {
-    name: "TelephonyResHanoip",
+    name: "TelephonyResLiber",
     product_specific: true,
 }

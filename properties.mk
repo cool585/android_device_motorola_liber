@@ -1,5 +1,5 @@
 #
-# Properties for hanoip
+# Properties for liber
 #
 
 # Audio

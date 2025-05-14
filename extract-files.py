@@ -19,7 +19,7 @@ from extract_utils.main import (
 )
 
 namespace_imports = [
-    'device/motorola/hanoip',
+    'device/motorola/liber',
     'hardware/motorola',
     'hardware/qcom/sm8150/gps',
     'hardware/qcom-caf/sm8150',
@@ -59,7 +59,7 @@ blob_fixups: blob_fixups_user_type = {
 }  # fmt: skip
 
 module = ExtractUtilsModule(
-    'hanoip',
+    'liber',
     'motorola',
     namespace_imports=namespace_imports,
     blob_fixups=blob_fixups,

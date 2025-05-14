@@ -4,6 +4,7 @@
 //
 
 runtime_resource_overlay {
-    name: "FrameworksResHanoip",
+    name: "FrameworksResLiber",
+    sdk_version: "current",
     vendor: true
 }

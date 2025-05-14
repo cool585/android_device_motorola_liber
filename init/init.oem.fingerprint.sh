@@ -20,7 +20,7 @@ function log {
 
 persist_fps_id=/mnt/vendor/persist/fps/vendor_id
 
-FPS_VENDOR_CHIPONE=chipone
+FPS_VENDOR_GOODIX=goodix
 FPS_VENDOR_FPC=fpc
 FPS_VENDOR_NONE=none
 
@@ -28,51 +28,47 @@ PROP_FPS_IDENT=vendor.hw.fps.ident
 MAX_TIMES=20
 
 function ident_fps {
-    log "- install FPC driver"
-    insmod /vendor/lib/modules/fpc1020_mmi.ko
+    log "- install Goodix driver"
+    insmod /vendor/lib/modules/goodix_fod_mmi.ko
     sleep 1
-    restorecon -R /sys/class/fingerprint
-    log "- identify FPC sensor"
+    log "- identify Goodix sensor"
     setprop $PROP_FPS_IDENT ""
-    start fpc_ident
+    start gf_ident
     for i in $(seq 1 $MAX_TIMES)
     do
         sleep 0.1
         ident_status=$(getprop $PROP_FPS_IDENT)
         log "-result : $ident_status"
-        if [ $ident_status == $FPS_VENDOR_FPC ]; then
+        if [ $ident_status == $FPS_VENDOR_GOODIX ]; then
             log "ok"
-            echo $FPS_VENDOR_FPC > $persist_fps_id
+            echo $FPS_VENDOR_GOODIX > $persist_fps_id
             return 0
         elif [ $ident_status == $FPS_VENDOR_NONE ]; then
             log "fail"
-            log "- unload FPC driver"
-            rmmod fpc1020_mmi
+            log "- unload Goodix driver"
+            rmmod goodix_fod_mmi
             break
         fi
     done
 
-    log "- install Chipone driver"
-    insmod /vendor/lib/modules/fpsensor_spi_tee.ko
-    echo $FPS_VENDOR_CHIPONE > $persist_fps_id
+    log "- install FPC driver"
+    insmod /vendor/lib/modules/fpc1020_mmi.ko
+    echo $FPS_VENDOR_FPC > $persist_fps_id
     return 0
 }
 
 if [ ! -f $persist_fps_id ]; then
-    log "- start ident_fps"
     ident_fps
     return $?
 fi
 
 fps_vendor=$(cat $persist_fps_id)
-if [ -z $fps_vendor ]; then
-    fps_vendor=$FPS_VENDOR_NONE
-fi
 log "FPS vendor: $fps_vendor"
 
-if [ $fps_vendor == $FPS_VENDOR_CHIPONE ]; then
-    log "- install Chipone driver"
-    insmod /vendor/lib/modules/fpsensor_spi_tee.ko
+
+if [ $fps_vendor == $FPS_VENDOR_GOODIX ]; then
+    log "- install Goodix driver"
+    insmod /vendor/lib/modules/goodix_fod_mmi.ko
     return $?
 fi
 
