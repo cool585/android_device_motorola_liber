@@ -132,72 +132,6 @@ vendor/lib/libbluetooth_audio_session_qti_2_1.so
 system/lib64/libaptXHD_encoder.so
 system/lib64/libaptX_encoder.so
 
-# Camera
-system_ext/lib64/libarcsoft_calibverify_TriCamera.so
-system_ext/lib64/libarcsoft_tricam_calibration.so
-system_ext/lib64/libarcsoft_tricam_verification.so
-system_ext/lib64/libarcsoftbase.so;FIX_SONAME
-system_ext/lib64/libarcsoftcalibration_jni.so
-system_ext/lib64/libarcsoftverification_jni.so
-vendor/lib64/camera/com.mot.eeprom.mot_gt24p64b_ov16a_eeprom.so
-vendor/lib64/camera/com.mot.eeprom.mot_gt24p64e_ov32b_eeprom.so
-vendor/lib64/camera/com.mot.eeprom.mot_gt24p64e_ov64b_eeprom.so
-vendor/lib64/camera/com.mot.eeprom.mot_gt24p64e_s5khm2_eeprom.so
-vendor/lib64/camera/com.mot.eeprom.mot_hanoip_ov02b1b_otp.so
-vendor/lib64/camera/com.mot.eeprom.mot_hanoip_s5k4h7_otp.so
-vendor/lib64/camera/com.qti.sensor.mot_ov02b1b.so
-vendor/lib64/camera/com.qti.sensor.mot_ov16a1q.so
-vendor/lib64/camera/com.qti.sensor.mot_ov32b.so
-vendor/lib64/camera/com.qti.sensor.mot_ov64b.so
-vendor/lib64/camera/com.qti.sensor.mot_s5k4h7.so
-vendor/lib64/camera/com.qti.sensor.mot_s5khm2.so
-vendor/lib64/camera/com.qti.sensormodule.ofilm_mot_hanoip_ov02b1b.bin
-vendor/lib64/camera/com.qti.sensormodule.ofilm_mot_hanoip_ov64b.bin
-vendor/lib64/camera/com.qti.sensormodule.ofilm_mot_hanoip_s5khm2.bin
-vendor/lib64/camera/com.qti.sensormodule.ofilm_mot_hanoip_s5khm2_compatible.bin
-vendor/lib64/camera/com.qti.sensormodule.qtech_mot_hanoip_ov16a1q.bin
-vendor/lib64/camera/com.qti.sensormodule.qtech_mot_hanoip_ov32b.bin
-vendor/lib64/camera/com.qti.sensormodule.qtech_mot_hanoip_s5k4h7.bin
-vendor/lib64/camera/com.qti.tuned.default.bin
-vendor/lib64/camera/com.qti.tuned.mot_hanoip_ov02b1b.bin
-vendor/lib64/camera/com.qti.tuned.mot_hanoip_ov16a1q.bin
-vendor/lib64/camera/com.qti.tuned.mot_hanoip_ov32b.bin
-vendor/lib64/camera/com.qti.tuned.mot_hanoip_ov64b.bin
-vendor/lib64/camera/com.qti.tuned.mot_hanoip_s5k4h7.bin
-vendor/lib64/camera/com.qti.tuned.mot_hanoip_s5khm2.bin
-vendor/lib64/camera/fdconfigpreview.bin
-vendor/lib64/camera/fdconfigpreviewlite.bin
-vendor/lib64/camera/fdconfigvideo.bin
-vendor/lib64/camera/fdconfigvideolite.bin
-vendor/lib64/hw/camera.qcom.so
-vendor/lib64/hw/com.qti.chi.override.so
-vendor/lib64/libarcsoft_distortion_correction.so
-vendor/lib64/libarcsoft_zoomtranslator_imp.so
-vendor/lib64/libcamera_nn_stub.so
-vendor/lib64/libcamxfdalgov7.so
-vendor/lib64/libcamxfdalgov8.so
-vendor/lib64/libcamxfdengine.so
-vendor/lib64/libcamxstatscore.so
-vendor/lib64/libcamxswprocessalgo.so
-vendor/lib64/libcamxtintlessalgo.so
-vendor/lib64/libcapiv2svacnn.so
-vendor/lib64/libcapiv2vop.so
-vendor/lib64/libcom.qti.chinodeutils.so
-vendor/lib64/libfcell.so
-vendor/lib64/libmot_afd.so
-vendor/lib64/libmot_lux_standardization.so
-vendor/lib64/libmpbase.so
-vendor/lib64/libmulticam_optical_zoom_control.so
-vendor/lib64/libmulticam_video_optical_zoom.so
-vendor/lib64/libsns_device_mode_stub.so
-vendor/lib64/libsns_fastRPC_util.so
-vendor/lib64/libsns_low_lat_stream_stub.so
-vendor/lib64/libsns_registry_skel.so
-vendor/lib64/libsnsapi.so
-vendor/lib64/libsnsdiaglog.so
-vendor/lib64/libswregistrationalgo.so
-vendor/lib64/libvidhance.so
-
 # Camera (Firmware)
 vendor/etc/camera/arcsoft_calibration_u_dc.bin|195e00c520d2ec2ed1aca9d0cdd3fa3ef65b5756
 vendor/etc/camera/dual_golden_depth.bin|d49175d75620419fc9881e9d8ff66612f188db1c
@@ -210,7 +144,7 @@ vendor/firmware/CAMERA_ICP.elf|18621a324d5f92fbe188a654eb7cf5a5a037e5db
 system_ext/lib64/libarcsoft_calibverify_TriCamera.so|81f1f38b0bc385bc1a4bc24993d6765335b8adf8
 system_ext/lib64/libarcsoft_tricam_calibration.so|eb11b3fa1cf3342ad45c604a424bfebbb80dd25d
 system_ext/lib64/libarcsoft_tricam_verification.so|3d33dfe009906451d922a60b10929cb129d345e3
-system_ext/lib64/libarcsoftbase.so|e6b51e2d501f434eea15ecdc275011d1498301ae
+system_ext/lib64/libarcsoftbase.so;FIX_SONAME|e6b51e2d501f434eea15ecdc275011d1498301ae
 system_ext/lib64/libarcsoftcalibration_jni.so|e6b51e2d501f434eea15ecdc275011d1498301ae
 system_ext/lib64/libarcsoftverification_jni.so|4de4e9361f93115e17f5afdf27a9ebf8f7ae9c2a
 vendor/lib/libarcsoft_distortion_correction.so|45ffd3878ba6e4912e6019519338f237a21bc643
@@ -517,7 +451,6 @@ vendor/lib64/libGPreqcancel.so
 vendor/lib64/libGPreqcancel_svc.so
 vendor/lib64/libQSEEComAPI.so
 vendor/lib64/libStDrvInt.so
-vendor/lib64/libbase64.so
 vendor/lib64/libcpion.so
 vendor/lib64/libdrmfs.so
 vendor/lib64/libdrmtime.so
@@ -533,11 +466,8 @@ vendor/lib64/libwvhidl.so
 vendor/lib64/vendor.qti.hardware.tui_comm@1.0.so
 
 # Fingerprint
-vendor/lib/vendor.qti.hardware.fingerprint@1.0.so
-vendor/lib64/com.fingerprints.extension@1.0.so
 vendor/lib64/libfp_ext_svc2.so
 vendor/lib64/vendor.fpsensor.hardware.fpsensorhidlsvc@2.0.so
-vendor/lib64/vendor.qti.hardware.fingerprint@1.0.so
 
 # Fingerprint - Goodix
 vendor/bin/hw/android.hardware.biometrics.fingerprint@2.1-goodixservice|3d4514e19ddaedf8e1058167223c0f1283d75687
@@ -946,7 +876,6 @@ vendor/lib64/liblog_vendor.so
 vendor/lib64/liblqe.so
 vendor/lib64/libmdmcutback.so;DISABLE_CHECKELF
 vendor/lib64/libmdmdetect.so
-vendor/lib64/libmotext_inf.so
 vendor/lib64/libnetmgr.so
 vendor/lib64/libnetmgr_common.so
 vendor/lib64/libnetmgr_nr_fusion.so
