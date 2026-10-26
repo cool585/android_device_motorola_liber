@@ -18,6 +18,9 @@
 $(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 
+# No OMX service on Android 17
+TARGET_SUPPORTS_OMX_SERVICE := false
+
 # Inherit from liber device
 $(call inherit-product, device/motorola/liber/device.mk)
 
