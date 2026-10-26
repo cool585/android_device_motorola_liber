@@ -49,7 +49,8 @@ PRODUCT_PACKAGES += \
 
 # audio.primary.sm6150 shim
 PRODUCT_PACKAGES += \
-    android.hardware.power-V1-ndk_platform.vendor
+    android.hardware.power-V1-ndk.vendor \
+    audio_power_ndk_platform_symlink
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/audio/audio_effects.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_effects.xml \
