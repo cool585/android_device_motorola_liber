@@ -23,7 +23,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.soc.model=SM7150
 
 # HDR
-PRODUCT_PROPERTY_OVERRIDES += \
+PRODUCT_PRODUCT_PROPERTIES += \
     ro.qcom.hdr.config=/system/vendor/etc/hdr_tm_config.xml
 
 # Sensor
