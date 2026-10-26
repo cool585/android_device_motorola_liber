@@ -14,12 +14,13 @@
 # limitations under the License.
 #
 
+# No OMX service on Android 17. This must be set before inheriting
+# core_64_bit.mk/full_base_telephony.mk, as base_vendor.mk reads it.
+TARGET_SUPPORTS_OMX_SERVICE := false
+
 # Inherit from those products. Most specific first.
 $(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
-
-# No OMX service on Android 17
-TARGET_SUPPORTS_OMX_SERVICE := false
 
 # Inherit from liber device
 $(call inherit-product, device/motorola/liber/device.mk)
