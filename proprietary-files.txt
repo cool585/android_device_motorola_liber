@@ -219,12 +219,12 @@ vendor/firmware/crus_sp_rx7.bin
 vendor/etc/vhw.xml
 
 # POPUP
-lib/motorola.hardware.popup@1.0.so
+system/lib/motorola.hardware.popup@1.0.so
 vendor/bin/hw/motorola.hardware.popup.akm@1.0-service
 vendor/etc/init/motorola.hardware.popup.akm@1.0-service.rc
-vendor/lib/motorola.hardware.popup@1.0.so
+vendor/lib/motorola.hardware.popup@1.0.so;MODULE_SUFFIX=_vendor
 vendor/lib64/libpopup.so
-vendor/lib64/motorola.hardware.popup@1.0.so
+vendor/lib64/motorola.hardware.popup@1.0.so;MODULE_SUFFIX=_vendor
 
 # Sensors
 vendor/bin/capsense_reset
