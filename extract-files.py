@@ -37,6 +37,8 @@ blob_fixups: blob_fixups_user_type = {
     ('vendor/lib64/hw/camera.qcom.so',
      'vendor/lib64/hw/com.qti.chi.override.so'): blob_fixup()
         .binary_regex_replace(b'camera.mot.is.coming.cts', b'vendor.camera.coming.cts'),
+    'vendor/lib64/sensors.moto.so': blob_fixup()
+        .add_needed('libbase_shim.so'),
 }  # fmt: skip
 
 module = ExtractUtilsModule(

@@ -87,6 +87,10 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     android.hardware.sensors@2.0-service.multihal
 
+# libbase shim for sensors.moto
+PRODUCT_PACKAGES += \
+    libbase_shim
+
 # Soong namespaces
 PRODUCT_SOONG_NAMESPACES += \
     $(LOCAL_PATH)
