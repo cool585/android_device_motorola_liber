@@ -41,13 +41,13 @@ vendor/firmware/CAMERA_ICP.elf
 system_ext/lib/libarcsoft_calibverify_TriCamera.so
 system_ext/lib/libarcsoft_tricam_calibration.so
 system_ext/lib/libarcsoft_tricam_verification.so
-system_ext/lib/libarcsoftbase.so
+system_ext/lib/libarcsoftbase.so;FIX_SONAME
 system_ext/lib/libarcsoftcalibration_jni.so
 system_ext/lib/libarcsoftverification_jni.so
 system_ext/lib64/libarcsoft_calibverify_TriCamera.so
 system_ext/lib64/libarcsoft_tricam_calibration.so
 system_ext/lib64/libarcsoft_tricam_verification.so
-system_ext/lib64/libarcsoftbase.so
+system_ext/lib64/libarcsoftbase.so;FIX_SONAME
 system_ext/lib64/libarcsoftcalibration_jni.so
 system_ext/lib64/libarcsoftverification_jni.so
 vendor/lib/libarcsoft_distortion_correction.so
