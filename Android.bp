@@ -1,12 +1,3 @@
 soong_namespace {
 }
 
-// The prebuilt audio.primary.sm6150 blob was linked against the old
-// android.hardware.power-V1-ndk_platform AIDL backend, which no longer
-// exists on Android 17. Point that name at the current NDK library.
-install_symlink {
-    name: "audio_power_ndk_platform_symlink",
-    vendor: true,
-    installed_location: "lib/android.hardware.power-V1-ndk_platform.so",
-    symlink_target: "/vendor/lib/android.hardware.power-V1-ndk.so",
-}
