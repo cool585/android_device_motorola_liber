@@ -13,7 +13,6 @@ vendor/etc/acdbdata/adsp_avs_config.acdb
 
 # Audio - Prebuilt
 vendor/lib/hw/audio.primary.sm6150.so
-vendor/lib/vndk/libtinyalsa.so:vendor/lib/libtinyalsa.so
 vendor/lib/libmotaudioutils.so
 vendor/lib/libtinycompress_vendor.so
 
@@ -51,7 +50,6 @@ system_ext/lib64/libarcsoftbase.so;FIX_SONAME
 system_ext/lib64/libarcsoftcalibration_jni.so
 system_ext/lib64/libarcsoftverification_jni.so
 vendor/lib/libarcsoft_distortion_correction.so
-vendor/lib/libarcsoft_zoomtranslator_imp.so
 vendor/lib64/camera/components/com.arcsoft.node.dc_capture.so
 vendor/lib64/camera/components/com.arcsoft.node.smooth_transition.so
 vendor/lib64/camera/components/com.qti.camx.chiiqutils.so
@@ -127,7 +125,6 @@ vendor/lib64/hw/camera.qcom.so
 vendor/lib64/hw/com.qti.chi.override.so
 vendor/lib64/libarcsoft_distortion_correction.so
 vendor/lib64/libarcsoft_zoomtranslator_imp.so
-vendor/lib64/libbase64.so
 vendor/lib64/libcamera2ndk_vendor.so
 vendor/lib64/libcamera_nn_stub.so
 vendor/lib64/libcamxfdalgov7.so
@@ -136,14 +133,11 @@ vendor/lib64/libcamxfdengine.so
 vendor/lib64/libcamxstatscore.so
 vendor/lib64/libcamxswprocessalgo.so
 vendor/lib64/libcamxtintlessalgo.so
-vendor/lib64/libcapiv2svacnn.so
-vendor/lib64/libcapiv2vop.so
 vendor/lib64/libcom.qti.chinodeutils.so
 vendor/lib64/libfcell.so
 vendor/lib64/libmot_afd.so
 vendor/lib64/libmot_gt9767_recovery.so
 vendor/lib64/libmot_lux_standardization.so
-vendor/lib64/libmotext_inf.so
 vendor/lib64/libmpbase.so
 vendor/lib64/libmulticam_optical_zoom_control.so
 vendor/lib64/libmulticam_video_optical_zoom.so
@@ -155,13 +149,10 @@ vendor/lib64/libsns_registry_skel.so
 vendor/lib64/libsnsapi.so
 vendor/lib64/libsnsdiaglog.so
 vendor/lib64/libswregistrationalgo.so
-vendor/lib64/libswvdec.so
 vendor/lib64/libsysmon_cdsp_skel.so
 vendor/lib64/libvidhance.so
 vendor/lib64/libvl53l1_daemon.so
 vendor/lib64/libvl53l1_daemon_main.so
-vendor/lib64/libxml.so
-vendor/lib64/unnhal-acc-hvx.so
 
 # Charger
 vendor/bin/charge_only_mode
@@ -279,14 +270,13 @@ vendor/etc/sensors/config/stk3a5x_0.json
 vendor/etc/sensors/hals.conf
 vendor/etc/sensors/sns_reg_config
 vendor/lib/hw/vendor.qti.hardware.sensorscalibrate@1.0-impl.so
-vendor/lib/android.hardware.sensors@2.0-ScopedWakelock.so
 vendor/lib/libsensorcal.so
 vendor/lib/libssc.so
 vendor/lib64/hw/vendor.qti.hardware.sensorscalibrate@1.0-impl.so
-vendor/lib64/android.hardware.sensors@2.0-ScopedWakelock.so
 vendor/lib64/libsensorcal.so
 vendor/lib64/libssc.so
 vendor/lib64/sensors.iio.so
+vendor/lib64/libiio.so
 vendor/lib64/sensors.moto.so
 vendor/lib64/sensors.ssc.so
 vendor/lib64/sensors.tof.vl53l1.so
