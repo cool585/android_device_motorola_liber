@@ -63,6 +63,8 @@
 	<usecase name="USECASE_AUDIO_PLAYBACK_OFFLOAD" type="out" id="8" />
 	<usecase name="USECASE_AUDIO_PLAYBACK_AFE_PROXY" type="out" id="6" />
 	<usecase name="USECASE_AUDIO_RECORD_AFE_PROXY" type="in" id="7" />
+	<usecase name="USECASE_AUDIO_PLAYBACK_VOIP" type="out" id="16" />
+	<usecase name="USECASE_AUDIO_RECORD_VOIP" type="in" id="16" />
 	<usecase name="USECASE_INCALL_MUSIC_UPLINK" type="out" id="27" />
 	<usecase name="USECASE_AUDIO_A2DP_ABR_FEEDBACK" type="in" id="12" />
 	<usecase name="USECASE_AUDIO_ECHO_REF" type="in" id="-1" />
