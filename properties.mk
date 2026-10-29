@@ -24,7 +24,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # HDR
 PRODUCT_PRODUCT_PROPERTIES += \
-    ro.qcom.hdr.config=/system/vendor/etc/hdr_tm_config.xml
+    ro.qcom.hdr.config=/vendor/etc/hdr_tm_config.xml
 
 # Sensor
 PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
