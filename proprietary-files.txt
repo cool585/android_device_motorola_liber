@@ -13,6 +13,10 @@ vendor/etc/acdbdata/adsp_avs_config.acdb
 
 # Audio - Prebuilt
 vendor/lib/hw/audio.primary.sm6150.so
+# Moto's tinyalsa fork, needed for mixer_update_ctls() which was renamed to
+# mixer_add_new_ctls() in AOSP's libtinyalsa. Installed under a private name so
+# the AOSP library stays available to the blobs shared with sm6150-common.
+vendor/lib/vndk/libtinyalsa.so:vendor/lib/libtinyalsa_moto.so;FIX_SONAME
 vendor/lib/libmotaudioutils.so
 vendor/lib/libtinycompress_vendor.so
 

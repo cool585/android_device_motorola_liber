@@ -50,7 +50,11 @@ blob_fixups: blob_fixups_user_type = {
         .replace_needed(
             'android.hardware.power-V1-ndk_platform.so',
             'android.hardware.power-V1-ndk.so',
-        ),
+        )
+        .replace_needed('libtinyalsa.so', 'libtinyalsa_moto.so'),
+    ('vendor/lib/soundfx/libmmieffectswrapper.so',
+     'vendor/lib/soundfx/libspeakerbundle.so'): blob_fixup()
+        .replace_needed('libtinyalsa.so', 'libtinyalsa_moto.so'),
 }  # fmt: skip
 
 module = ExtractUtilsModule(
