@@ -1,0 +1,6 @@
+#
+# Key layout for Motorola gpio-keys
+#
+
+key 115   VOLUME_UP
+key 583   ASSIST            WAKE

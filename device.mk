@@ -75,11 +75,13 @@ PRODUCT_PACKAGES += \
 
 # IDC
 PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/idc/gpio-keys.idc:$(TARGET_COPY_OUT_SYSTEM)/usr/idc/gpio-keys.idc \
     $(LOCAL_PATH)/idc/uinput_nav.idc:$(TARGET_COPY_OUT_SYSTEM)/usr/idc/uinput_nav.idc \
     $(LOCAL_PATH)/idc/uinput-fpc.idc:$(TARGET_COPY_OUT_SYSTEM)/usr/idc/uinput-fpc.idc
 
 # Keylayouts
 PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/keylayout/gpio-keys.kl:$(TARGET_COPY_OUT_SYSTEM)/usr/keylayout/gpio-keys.kl \
     $(LOCAL_PATH)/keylayout/uinput_nav.kl:$(TARGET_COPY_OUT_SYSTEM)/usr/keylayout/uinput_nav.kl \
     $(LOCAL_PATH)/keylayout/uinput-fpc.kl:$(TARGET_COPY_OUT_SYSTEM)/usr/keylayout/uinput-fpc.kl
 
