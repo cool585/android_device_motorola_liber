@@ -41,6 +41,3 @@ TARGET_VENDOR_PROP += $(DEVICE_PATH)/vendor.prop
 
 # SELinux
 BOARD_VENDOR_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy/vendor
-
-# inherit from the proprietary version
-include hardware/motorola/dolby/BoardConfigVendor.mk
