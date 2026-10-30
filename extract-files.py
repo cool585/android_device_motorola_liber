@@ -19,6 +19,7 @@ from extract_utils.main import (
 
 namespace_imports = [
     'device/motorola/liber',
+    'hardware/dolby',
     'hardware/motorola',
     'hardware/qcom-caf/sm8150',
     'hardware/qcom-caf/wlan',

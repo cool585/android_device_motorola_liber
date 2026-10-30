@@ -1,6 +1,7 @@
 soong_namespace {
     imports: [
         "device/motorola/sm6150-common",
+        "hardware/dolby",
         "hardware/motorola",
     ],
 }

@@ -2,5 +2,11 @@
   {
     "repository": "android_device_motorola_sm6150-common",
     "target_path": "device/motorola/sm6150-common"
+  },
+  {
+    "remote": "github",
+    "repository": "swiitch-OFF-Lab/hardware_dolby",
+    "target_path": "hardware/dolby",
+    "branch": "moto-A17"
   }
 ]

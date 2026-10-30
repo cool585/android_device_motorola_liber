@@ -24,7 +24,8 @@ $(call inherit-product, device/motorola/sm6150-common/common.mk)
 $(call inherit-product, vendor/motorola/liber/liber-vendor.mk)
 
 # Dolby
-$(call inherit-product, hardware/motorola/dolby/setup.mk)
+TARGET_INCLUDES_OEM_App := true
+$(call inherit-product-if-exists, hardware/dolby/dolby.mk)
 
 # Properties
 -include $(LOCAL_PATH)/properties.mk
