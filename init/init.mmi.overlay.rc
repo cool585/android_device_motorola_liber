@@ -205,11 +205,11 @@ on boot
    chmod 0664 /sys/class/power_supply/bq2597x-master/charging_enabled
    chmod 0664 /sys/class/power_supply/bq2597x-slave/charging_enabled
    chmod 0664 /sys/class/power_supply/qcom_battery/device/force_chg_usb_suspend
-   chown 0664 /sys/class/power_supply/qcom_battery/device/force_chg_auto_enable
-   chown 0664 /sys/class/power_supply/qcom_battery/device/force_chg_fail_clear
-   chown 0664 /sys/class/power_supply/qcom_battery/device/force_chg_iusb
-   chown 0664 /sys/class/power_supply/qcom_battery/device/force_chg_ibatt
-   chown 0664 /sys/class/power_supply/qcom_battery/device/force_chg_itrick
+   chmod 0664 /sys/class/power_supply/qcom_battery/device/force_chg_auto_enable
+   chmod 0664 /sys/class/power_supply/qcom_battery/device/force_chg_fail_clear
+   chmod 0664 /sys/class/power_supply/qcom_battery/device/force_chg_iusb
+   chmod 0664 /sys/class/power_supply/qcom_battery/device/force_chg_ibatt
+   chmod 0664 /sys/class/power_supply/qcom_battery/device/force_chg_itrick
 
    chmod 660 /dev/cci_intf
    chown system camera /dev/cci_intf
