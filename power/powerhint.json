@@ -307,9 +307,11 @@
       "Name": "DoubleTapToWakeEnable",
       "Path": "/sys/class/sensors/dt-gesture/enable",
       "Values": [
-        "1",
-        "0"
-      ]
+        "0",
+        "1"
+      ],
+      "DefaultIndex": 0,
+      "ResetOnInit": true
     }
   ],
   "Actions": [
