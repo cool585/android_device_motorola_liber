@@ -8,5 +8,11 @@
     "repository": "swiitch-OFF-Lab/hardware_dolby",
     "target_path": "hardware/dolby",
     "branch": "moto-A17"
+  },
+  {
+    "remote": "github",
+    "repository": "cool585/hardware_motorola",
+    "target_path": "hardware/motorola",
+    "branch": "lineage-24.0"
   }
 ]
