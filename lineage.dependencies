@@ -5,14 +5,14 @@
   },
   {
     "remote": "github",
-    "repository": "swiitch-OFF-Lab/hardware_dolby",
-    "target_path": "hardware/dolby",
-    "branch": "moto-A17"
-  },
-  {
-    "remote": "github",
     "repository": "cool585/hardware_motorola",
     "target_path": "hardware/motorola",
     "branch": "lineage-24.0"
+  },
+  {
+    "remote": "github",
+    "repository": "crdroidandroid/android_packages_apps_LunarisDolby",
+    "target_path": "packages/apps/LunarisDolby",
+    "branch": "17.0"
   }
 ]

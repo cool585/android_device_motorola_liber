@@ -24,8 +24,14 @@ $(call inherit-product, device/motorola/sm6150-common/common.mk)
 $(call inherit-product, vendor/motorola/liber/liber-vendor.mk)
 
 # Dolby
-TARGET_INCLUDES_OEM_App := true
-$(call inherit-product-if-exists, hardware/dolby/dolby.mk)
+$(call inherit-product, $(LOCAL_PATH)/dolby/dolby.mk)
+
+# Dolby UI
+# Uses the DAP effect (9d4921da-8225-4f29-aefa-39537a04bcaa). The effect is
+# provided by the Dolby runtime above; if the DMS HAL is not serving it,
+# AudioEffect init returns NO_INIT and this persistent service crash-loops.
+PRODUCT_PACKAGES += \
+    LunarisDolby
 
 # Properties
 -include $(LOCAL_PATH)/properties.mk
