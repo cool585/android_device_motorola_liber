@@ -3,7 +3,7 @@
 #
 
 # Audio
-PRODUCT_PROPERTY_OVERRIDES += \
+PRODUCT_VENDOR_PROPERTIES += \
     persist.vendor.audio.calfile0=/vendor/etc/acdbdata/Bluetooth_cal.acdb \
     persist.vendor.audio.calfile1=/vendor/etc/acdbdata/General_cal.acdb \
     persist.vendor.audio.calfile2=/vendor/etc/acdbdata/Global_cal.acdb \
@@ -14,11 +14,11 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.vendor.audio.calfile7=/vendor/etc/acdbdata/Codec_cal.acdb
 
 # Camera
-PRODUCT_PROPERTY_OVERRIDES += \
+PRODUCT_VENDOR_PROPERTIES += \
     persist.vendor.camera.physical.num=5
 
 # Chipset
-PRODUCT_PROPERTY_OVERRIDES += \
+PRODUCT_VENDOR_PROPERTIES += \
     ro.soc.manufacturer=QTI \
     ro.soc.model=SM7150
 
@@ -27,7 +27,7 @@ PRODUCT_PRODUCT_PROPERTIES += \
     ro.qcom.hdr.config=/vendor/etc/hdr_tm_config.xml
 
 # Sensor
-PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
+PRODUCT_VENDOR_PROPERTIES += \
     ro.vendor.sensors.mot_ltv=true \
     persist.vendor.sensors.hal_trigger_ssr=true \
     persist.vendor.sensors.odl.adsp=true

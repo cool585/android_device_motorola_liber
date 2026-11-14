@@ -124,4 +124,4 @@ PRODUCT_PACKAGES += \
     libdlbvol \
     libswdap \
     libswgamedap \
-    libswvqe \
+    libswvqe
