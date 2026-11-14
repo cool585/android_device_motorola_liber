@@ -25,6 +25,16 @@ TARGET_SCREEN_DENSITY := 420
 DEVICE_MANIFEST_FILE += $(DEVICE_PATH)/manifest.xml
 DEVICE_MATRIX_FILE := $(DEVICE_PATH)/compatibility_matrix.xml
 
+# Dolby
+# These are board variables and must be set here, not in the product-scope
+# dolby.mk where they would be ignored.
+DEVICE_MANIFEST_FILE += \
+    $(DEVICE_PATH)/dolby/vendor.dolby.hardware.dms@2.0-service.xml \
+    $(DEVICE_PATH)/dolby/vendor.dolby.media.c2.xml
+DEVICE_FRAMEWORK_COMPATIBILITY_MATRIX_FILE += \
+    $(DEVICE_PATH)/dolby/dolby_framework_matrix.xml
+BOARD_VENDOR_SEPOLICY_DIRS += $(DEVICE_PATH)/dolby/sepolicy/vendor
+
 # Kernel
 TARGET_KERNEL_CONFIG := vendor/liber_defconfig
 

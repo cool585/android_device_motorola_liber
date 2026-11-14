@@ -1,59 +1,124 @@
 #
-# Copyright (C) 2022-2026 The LineageOS Project
+# Copyright (C) 2022 FlamingoOS Project
 #
-# SPDX-License-Identifier: Apache-2.0
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+# http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
 #
 
-# Dolby runtime sourced from hardware/motorola/dolby (v17). This is the
-# Motorola stack that matches this device: the effect libraries are 32-bit
-# (the effects factory lives in the 32-bit audio/HAL side) and the DMS HAL,
-# its impl and the service are 64-bit.
-#
-# The previous in-tree copy was the Xiaomi "spatial/atmos" variant: its
-# libswdap needs vendor.dolby.hardware.dms@2.0-atmos.so.so, libdlbpreg,
-# libspatializerparamstorage and libstagefright_foundation-atmos. Combined
-# with this device's blobs the DAP effect failed to initialize (AudioFlinger
-# status -19 / NO_INIT), which made LunarisDolby crash-loop.
+# Dolby path
 DOLBY_PATH := device/motorola/liber/dolby
 
-# Enable Dolby DAP support in the audio HAL
+# Soong Namespace
+PRODUCT_SOONG_NAMESPACES += \
+   $(DOLBY_PATH)
+
+# Enable codec support
 AUDIO_FEATURE_ENABLED_DS2_DOLBY_DAP := true
 
-# The Motorola Dolby stack ships its own AudioFX/effect configuration
-TARGET_EXCLUDES_AUDIOFX := true
+# SEPolicy and HIDL manifests are board variables; they are declared in
+# BoardConfig.mk, since assignment here (product scope) has no effect.
 
-# SEPolicy
-BOARD_VENDOR_SEPOLICY_DIRS += \
-    $(DOLBY_PATH)/sepolicy/vendor
-
-# Dolby runtime
-# The AC3/EAC3/AC4 decoders and libdeccfg are omitted: they are soft OMX
-# components and OMX is gone on this platform (TARGET_SUPPORTS_OMX_SERVICE
-# is false and no softomx plugin is shipped), so they could never load.
-PRODUCT_PACKAGES += \
-    libdapparamstorage \
-    libdlbdsservice \
-    libqcbassboost \
-    libqcreverb \
-    libqcvirt \
-    libstagefright_foundation-v33 \
-    libswdap \
-    libswgamedap \
-    libswvqe \
-    vendor.dolby.hardware.dms@2.0 \
-    vendor.dolby.hardware.dms@2.0-impl \
-    vendor.dolby.hardware.dms@2.0-service
-
-# Dolby configs
-PRODUCT_PACKAGES += \
-    vendor.dolby.hardware.dms@2.0-service.xml
-
+# Configs
 PRODUCT_COPY_FILES += \
-    $(DOLBY_PATH)/proprietary/vendor/etc/init/vendor.dolby.hardware.dms@2.0-service.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/vendor.dolby.hardware.dms@2.0-service.rc \
-    $(DOLBY_PATH)/proprietary/vendor/etc/dolby/dax-default.xml:$(TARGET_COPY_OUT_VENDOR)/etc/dolby/dax-default.xml
+    $(DOLBY_PATH)/configs/dax-default.xml:$(TARGET_COPY_OUT_VENDOR)/etc/dolby/dax-default.xml \
+    $(DOLBY_PATH)/configs/media_codecs_dolby_audio.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_dolby_audio.xml
 
-# Dolby props
+# Dolby VNDK libs
+PRODUCT_PACKAGES += \
+    libstagefright_foundation-v33
+
+PRODUCT_PACKAGES += \
+    libshim_dolby
+
+# Init
+PRODUCT_PACKAGES += \
+    init.dolby.rc
+
+# Overlays    
+PRODUCT_PACKAGES += \
+    DolbyFrameworksResCommon
+
+# Spatial Audio
+PRODUCT_COPY_FILES += \
+    $(DOLBY_PATH)/configs/android.hardware.sensor.dynamic.head_tracker.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.sensor.dynamic.head_tracker.xml \
+
+# Spatial Audio: optimize spatializer effect
+PRODUCT_PROPERTY_OVERRIDES += \
+       audio.spatializer.effect.util_clamp_min=300
+
+# Spatial Audio: declare use of spatial audio
+PRODUCT_PROPERTY_OVERRIDES += \
+       ro.audio.spatializer_enabled=true \
+       ro.audio.headtracking_enabled=true \
+       ro.audio.spatializer_transaural_enabled_default=false \
+       persist.vendor.audio.spatializer.speaker_enabled=true \
+
+# Spatial Audio Proprietary blobs
+PRODUCT_PACKAGES += \
+    libspatialaudio
+
+# Media (C2)
+PRODUCT_PACKAGES += \
+    android.hardware.media.c2@1.0.vendor \
+    android.hardware.media.c2@1.1.vendor \
+    android.hardware.media.c2@1.2.vendor \
+    libcodec2_hidl@1.2.vendor \
+    libsfplugin_ccodec_utils.vendor \
+    libcodec2_soft_common.vendor
+
+# Codec2 Props
+PRODUCT_VENDOR_PROPERTIES += \
+    vendor.audio.c2.preferred=true \
+    debug.c2.use_dmabufheaps=1 \
+    vendor.qc2audio.suspend.enabled=true \
+    vendor.qc2audio.per_frame.flac.dec.enabled=true
+
+# Dolby Props
 PRODUCT_VENDOR_PROPERTIES += \
     ro.vendor.dolby.dax.version=DAX3_3.7.0.8_r1 \
     vendor.audio.dolby.ds2.hardbypass=false \
     vendor.audio.dolby.ds2.enabled=false
+
+# Remove Packages for Dolby Support
+PRODUCT_PACKAGES += \
+    RemovePackagesDolby
+
+# LunarisDolby
+PRODUCT_PACKAGES += \
+    LunarisDolby
+
+# Dolby Proprietary blobs
+PRODUCT_COPY_FILES += \
+    $(DOLBY_PATH)/proprietary/vendor/etc/init/vendor.dolby.hardware.dms@2.0-service.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/vendor.dolby.hardware.dms@2.0-service.rc \
+
+# Codec2 (Dolby)
+PRODUCT_COPY_FILES += \
+    $(DOLBY_PATH)/proprietary/vendor/etc/init/vendor.dolby.media.c2@1.0-service.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/vendor.dolby.media.c2@1.0-service.rc \
+
+PRODUCT_PACKAGES += \
+    libdapparamstorage \
+    libdlbpreg \
+    vendor.dolby.hardware.dms@2.0 \
+    libdlbdsservice \
+    liboem_specific \
+    vendor.dolby.hardware.dms@2.0-impl \
+    vendor.dolby.hardware.dms@2.0-service \
+    libcodec2_soft_ac4dec \
+    libcodec2_soft_ddpdec \
+    libcodec2_soft_dolby \
+    libcodec2_store_dolby \
+    libdeccfg \
+    vendor.dolby.media.c2@1.0-service \
+    libdlbvol \
+    libswdap \
+    libswgamedap \
+    libswvqe \
