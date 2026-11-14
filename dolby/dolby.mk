@@ -27,15 +27,15 @@ BOARD_VENDOR_SEPOLICY_DIRS += \
     $(DOLBY_PATH)/sepolicy/vendor
 
 # Dolby runtime
+# The AC3/EAC3/AC4 decoders and libdeccfg are omitted: they are soft OMX
+# components and OMX is gone on this platform (TARGET_SUPPORTS_OMX_SERVICE
+# is false and no softomx plugin is shipped), so they could never load.
 PRODUCT_PACKAGES += \
     libdapparamstorage \
-    libdeccfg \
     libdlbdsservice \
     libqcbassboost \
     libqcreverb \
     libqcvirt \
-    libstagefright_soft_ac4dec \
-    libstagefright_soft_ddpdec \
     libstagefright_foundation-v33 \
     libswdap \
     libswgamedap \
@@ -50,8 +50,7 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_COPY_FILES += \
     $(DOLBY_PATH)/proprietary/vendor/etc/init/vendor.dolby.hardware.dms@2.0-service.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/vendor.dolby.hardware.dms@2.0-service.rc \
-    $(DOLBY_PATH)/proprietary/vendor/etc/dolby/dax-default.xml:$(TARGET_COPY_OUT_VENDOR)/etc/dolby/dax-default.xml \
-    $(DOLBY_PATH)/proprietary/vendor/etc/media_codecs_dolby_audio.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_dolby_audio.xml
+    $(DOLBY_PATH)/proprietary/vendor/etc/dolby/dax-default.xml:$(TARGET_COPY_OUT_VENDOR)/etc/dolby/dax-default.xml
 
 # Dolby props
 PRODUCT_VENDOR_PROPERTIES += \

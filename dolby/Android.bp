@@ -46,23 +46,6 @@ cc_prebuilt_library_shared {
 }
 
 cc_prebuilt_library_shared {
-	name: "libdeccfg",
-	owner: "motorola",
-	strip: {
-		none: true,
-	},
-	target: {
-		android_arm: {
-			srcs: ["proprietary/vendor/lib/libdeccfg.so"],
-			shared_libs: ["libhidlbase", "vendor.dolby.hardware.dms@2.0", "libcutils", "libutils", "liblog", "libc++", "libc", "libm", "libdl", ],
-		},
-	},
-	compile_multilib: "32",
-	prefer: true,
-	soc_specific: true,
-}
-
-cc_prebuilt_library_shared {
 	name: "libdlbdsservice",
 	owner: "motorola",
 	strip: {
@@ -75,40 +58,6 @@ cc_prebuilt_library_shared {
 		},
 	},
 	compile_multilib: "64",
-	prefer: true,
-	soc_specific: true,
-}
-
-cc_prebuilt_library_shared {
-	name: "libstagefright_soft_ac4dec",
-	owner: "motorola",
-	strip: {
-		none: true,
-	},
-	target: {
-		android_arm: {
-			srcs: ["proprietary/vendor/lib/libstagefright_soft_ac4dec.so"],
-			shared_libs: ["libhidlbase", "vendor.dolby.hardware.dms@2.0", "libdeccfg", "libstagefright_foundation-v33", "libutils", "libcutils", "liblog", "libstagefright_omx", "libstagefright_softomx", "libmedia_omx", "libc++", "libc", "libm", "libdl", ],
-		},
-	},
-	compile_multilib: "32",
-	prefer: true,
-	soc_specific: true,
-}
-
-cc_prebuilt_library_shared {
-	name: "libstagefright_soft_ddpdec",
-	owner: "motorola",
-	strip: {
-		none: true,
-	},
-	target: {
-		android_arm: {
-			srcs: ["proprietary/vendor/lib/libstagefright_soft_ddpdec.so"],
-			shared_libs: ["libhidlbase", "vendor.dolby.hardware.dms@2.0", "libdeccfg", "libstagefright_omx", "libstagefright_softomx", "libstagefright_foundation-v33", "libutils", "libcutils", "libmedia_omx", "liblog", "libc++", "libc", "libm", "libdl", ],
-		},
-	},
-	compile_multilib: "32",
 	prefer: true,
 	soc_specific: true,
 }
