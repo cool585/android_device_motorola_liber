@@ -50,5 +50,7 @@ TARGET_MODULE_ALIASES += \
 TARGET_VENDOR_PROP += $(DEVICE_PATH)/vendor.prop
 
 # SELinux
-SYSTEM_EXT_PRIVATE_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy/private
+SYSTEM_EXT_PRIVATE_SEPOLICY_DIRS += \
+    $(DEVICE_PATH)/sepolicy/private \
+    $(DEVICE_PATH)/motocamera2/sepolicy
 BOARD_VENDOR_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy/vendor

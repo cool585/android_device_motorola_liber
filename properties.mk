@@ -15,7 +15,17 @@ PRODUCT_VENDOR_PROPERTIES += \
 
 # Camera
 PRODUCT_VENDOR_PROPERTIES += \
-    persist.vendor.camera.physical.num=5
+    persist.vendor.camera.physical.num=5 \
+    persist.vendor.camera.expose.aux=1 \
+    persist.vendor.camera.privapp.list=com.motorola.camera2,org.lineageos.aperture \
+    vendor.camera.aux.packagelist=com.motorola.camera2,org.lineageos.aperture \
+    vendor.camera.aux.packagelist2=com.motorola.ccc,com.android.settings,com.motorola.motocit
+
+PRODUCT_SYSTEM_PROPERTIES += \
+    ro.camera.cfa.packagelist=com.motorola.coresettingsext,com.motorola.camera2,com.motorola.actions
+
+PRODUCT_PRODUCT_PROPERTIES += \
+    ro.mot.build.customerid=global
 
 # Chipset
 PRODUCT_VENDOR_PROPERTIES += \

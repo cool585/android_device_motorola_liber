@@ -1,0 +1,5 @@
+allow priv_app cgroup:dir search;
+allow priv_app_36 cgroup:dir search;
+
+get_prop(priv_app, audio_config_prop)
+get_prop(priv_app_36, audio_config_prop)

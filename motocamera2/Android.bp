@@ -1,0 +1,459 @@
+//
+// SPDX-FileCopyrightText: The Android Open Source Project
+// SPDX-License-Identifier: Apache-2.0
+//
+
+soong_namespace {
+}
+
+// Reassemble multipart Whitney APK chunks to stay under GitHub file size limits
+genrule {
+    name: "MotCamera2_whitney_apk",
+    srcs: [
+        "app/MotCamera2-whitney/MotCamera2-whitney.apk.partaa",
+        "app/MotCamera2-whitney/MotCamera2-whitney.apk.partab",
+        "app/MotCamera2-whitney/MotCamera2-whitney.apk.partac",
+        "app/MotCamera2-whitney/MotCamera2-whitney.apk.partad",
+    ],
+    out: ["MotCamera2-whitney.apk"],
+    cmd: "cat $(in) > $(out)",
+}
+
+android_app_import {
+    name: "MotCamera2-whitney",
+    owner: "motorola",
+    apk: ":MotCamera2_whitney_apk",
+    preprocessed: true,
+    presigned: true,
+    dex_preopt: {
+        enabled: false,
+    },
+    privileged: true,
+    product_specific: true,
+    skip_preprocessed_apk_checks: true,
+    enforce_uses_libs: false,
+    overrides: [
+        "Aperture",
+        "Camera",
+        "Camera2",
+        "Snap",
+        "Snap2",
+        "SnapdragonCamera",
+        "SnapdragonCamera2",
+    ],
+    required: [
+        "com.motorola.camera2.whitney",
+        "com.motorola.maya",
+        "com.motorola.motosignature",
+        "moto-settings",
+        "privapp-permissions-com.motorola.camera2",
+    ],
+}
+
+android_app_import {
+    name: "MotCamera2AI",
+    owner: "motorola",
+    apk: "app/MotCamera2AI/MotCamera2AI.apk",
+    preprocessed: true,
+    presigned: true,
+    dex_preopt: {
+        enabled: false,
+    },
+    privileged: true,
+    product_specific: true,
+    skip_preprocessed_apk_checks: true,
+    enforce_uses_libs: false,
+    required: [
+        "com.motorola.camera2.content.ai",
+    ],
+}
+
+android_app_import {
+    name: "MotoPhotoEditor",
+    owner: "motorola",
+    apk: "app/MotoPhotoEditor/MotoPhotoEditor.apk",
+    preprocessed: true,
+    presigned: true,
+    dex_preopt: {
+        enabled: false,
+    },
+    privileged: true,
+    product_specific: true,
+    skip_preprocessed_apk_checks: true,
+    enforce_uses_libs: false,
+    required: [
+        "com.motorola.photoeditor",
+    ],
+}
+
+android_app_import {
+    name: "MotoSignatureApp",
+    owner: "motorola",
+    apk: "app/MotoSignatureApp/MotoSignatureApp.apk",
+    preprocessed: true,
+    presigned: true,
+    dex_preopt: {
+        enabled: false,
+    },
+    skip_preprocessed_apk_checks: true,
+    enforce_uses_libs: false,
+    required: [
+        "com.motorola.motosignature",
+    ],
+}
+
+android_app_import {
+    name: "MotoSignature2App",
+    owner: "motorola",
+    apk: "app/MotoSignature2App/MotoSignature2App.apk",
+    preprocessed: true,
+    presigned: true,
+    dex_preopt: {
+        enabled: false,
+    },
+    skip_preprocessed_apk_checks: true,
+    enforce_uses_libs: false,
+}
+
+android_app_import {
+    name: "MotorolaSettingsProvider",
+    owner: "motorola",
+    apk: "app/MotorolaSettingsProvider/MotorolaSettingsProvider.apk",
+    certificate: "platform",
+    dex_preopt: {
+        enabled: false,
+    },
+    privileged: true,
+    system_ext_specific: true,
+    enforce_uses_libs: false,
+    required: [
+        "moto-settings",
+    ],
+}
+
+// Shared Libraries
+cc_prebuilt_library_shared {
+    name: "libmcf_native_window_helper.motocamera",
+    owner: "motorola",
+    strip: {
+        none: true,
+    },
+    target: {
+        android_arm: {
+            srcs: ["lib/libmcf_native_window_helper.motocamera.so"],
+            shared_libs: [
+                "libandroid",
+                "liblog",
+                "libnativewindow",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+        android_arm64: {
+            srcs: ["lib64/libmcf_native_window_helper.motocamera.so"],
+            shared_libs: [
+                "libandroid",
+                "liblog",
+                "libnativewindow",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+    },
+    compile_multilib: "both",
+    prefer: true,
+    system_ext_specific: true,
+}
+
+cc_prebuilt_library_shared {
+    name: "libenginepostproc.moto",
+    owner: "motorola",
+    strip: {
+        none: true,
+    },
+    target: {
+        android_arm64: {
+            srcs: ["lib64/libenginepostproc.moto.so"],
+            shared_libs: [
+                "libc",
+                "liblog",
+                "libm",
+                "libcutils",
+                "libc++",
+                "libdl",
+            ],
+        },
+    },
+    compile_multilib: "64",
+    prefer: true,
+    system_ext_specific: true,
+}
+
+// Framework Libraries
+dex_import {
+    name: "com.motorola.frameworks.core.addon",
+    owner: "motorola",
+    jars: ["framework/com.motorola.frameworks.core.addon.jar"],
+    required: [
+        "com.motorola.frameworks.core.addon.xml",
+    ],
+}
+
+dex_import {
+    name: "moto-checkin",
+    owner: "motorola",
+    jars: ["framework/moto-checkin.jar"],
+    required: [
+        "moto-checkin.xml",
+    ],
+}
+
+dex_import {
+    name: "moto-core_services",
+    owner: "motorola",
+    jars: ["framework/moto-core_services.jar"],
+    required: [
+        "moto-core_services.xml",
+    ],
+}
+
+dex_import {
+    name: "moto-settings",
+    owner: "motorola",
+    jars: ["framework/moto-settings.jar"],
+    required: [
+        "moto-settings.xml",
+        "motsettings",
+    ],
+}
+
+dex_import {
+    name: "com.motorola.motosignature",
+    owner: "motorola",
+    jars: ["framework/com.motorola.motosignature.jar"],
+    required: [
+        "com.motorola.motosignature.xml",
+    ],
+}
+
+dex_import {
+    name: "com.motorola.android.dropboxhelper",
+    owner: "motorola",
+    jars: ["framework/com.motorola.android.dropboxhelper.jar"],
+    required: [
+        "dropboxhelper",
+    ],
+}
+
+dex_import {
+    name: "com.motorola.androidx.camera.extensions",
+    owner: "motorola",
+    jars: ["framework/com.motorola.androidx.camera.extensions.jar"],
+    required: [
+        "com.motorola.androidx.camera.extensions.xml",
+    ],
+    system_ext_specific: true,
+}
+
+dex_import {
+    name: "com.motorola.camera.extensions",
+    owner: "motorola",
+    jars: ["framework/com.motorola.camera.extensions.jar"],
+    required: [
+        "com.motorola.camera.extensions.xml",
+    ],
+    soc_specific: true,
+}
+
+// Binaries
+sh_binary {
+    name: "motsettings",
+    owner: "motorola",
+    src: "bin/motsettings",
+    filename_from_src: true,
+    system_ext_specific: true,
+}
+
+sh_binary {
+    name: "dropboxhelper",
+    owner: "motorola",
+    src: "bin/dropboxhelper",
+    filename_from_src: true,
+}
+
+// Permissions and Sysconfig
+prebuilt_etc {
+    name: "com.motorola.camera2.whitney",
+    owner: "motorola",
+    sub_dir: "permissions",
+    src: "etc/permissions/com.motorola.camera2.whitney.xml",
+    filename_from_src: true,
+    product_specific: true,
+}
+
+prebuilt_etc {
+    name: "com.motorola.camera2.content.ai",
+    owner: "motorola",
+    sub_dir: "permissions",
+    src: "etc/permissions/com.motorola.camera2.content.ai.xml",
+    filename_from_src: true,
+    product_specific: true,
+}
+
+prebuilt_etc {
+    name: "com.motorola.photoeditor",
+    owner: "motorola",
+    sub_dir: "permissions",
+    src: "etc/permissions/com.motorola.photoeditor.xml",
+    filename_from_src: true,
+    product_specific: true,
+}
+
+prebuilt_etc {
+    name: "com.motorola.maya",
+    owner: "motorola",
+    sub_dir: "permissions",
+    src: "etc/permissions/com.motorola.maya.xml",
+    filename_from_src: true,
+    product_specific: true,
+}
+
+prebuilt_etc {
+    name: "com.motorola.frameworks.core.addon.xml",
+    owner: "motorola",
+    sub_dir: "permissions",
+    src: "etc/permissions/com.motorola.frameworks.core.addon.xml",
+    filename_from_src: true,
+}
+
+prebuilt_etc {
+    name: "moto-checkin.xml",
+    owner: "motorola",
+    sub_dir: "permissions",
+    src: "etc/permissions/moto-checkin.xml",
+    filename_from_src: true,
+}
+
+prebuilt_etc {
+    name: "moto-core_services.xml",
+    owner: "motorola",
+    sub_dir: "permissions",
+    src: "etc/permissions/moto-core_services.xml",
+    filename_from_src: true,
+}
+
+prebuilt_etc {
+    name: "moto-settings.xml",
+    owner: "motorola",
+    sub_dir: "permissions",
+    src: "etc/permissions/moto-settings.xml",
+    filename_from_src: true,
+}
+
+prebuilt_etc {
+    name: "com.motorola.motosignature.xml",
+    owner: "motorola",
+    sub_dir: "permissions",
+    src: "etc/permissions/com.motorola.motosignature.xml",
+    filename_from_src: true,
+}
+
+prebuilt_etc {
+    name: "com.motorola.androidx.camera.extensions.xml",
+    owner: "motorola",
+    sub_dir: "permissions",
+    src: "etc/permissions/com.motorola.androidx.camera.extensions.xml",
+    filename_from_src: true,
+    system_ext_specific: true,
+}
+
+prebuilt_etc {
+    name: "com.motorola.camera.extensions.xml",
+    owner: "motorola",
+    sub_dir: "permissions",
+    src: "etc/permissions/com.motorola.camera.extensions.xml",
+    filename_from_src: true,
+    soc_specific: true,
+}
+
+prebuilt_etc {
+    name: "privapp-permissions-com.motorola.camera2",
+    owner: "motorola",
+    sub_dir: "permissions",
+    src: "etc/permissions/privapp-permissions-com.motorola.camera2.xml",
+    filename_from_src: true,
+    product_specific: true,
+}
+
+prebuilt_etc {
+    name: "deviceowner-configuration-com.motorola.camera2",
+    owner: "motorola",
+    sub_dir: "permissions",
+    src: "etc/permissions/deviceowner-configuration-com.motorola.camera2.xml",
+    filename_from_src: true,
+    product_specific: true,
+}
+
+prebuilt_etc {
+    name: "hiddenapi-whitelist-com.motorola.camera2",
+    owner: "motorola",
+    sub_dir: "sysconfig",
+    src: "etc/sysconfig/hiddenapi-whitelist-com.motorola.camera2.xml",
+    filename_from_src: true,
+    product_specific: true,
+}
+
+prebuilt_etc {
+    name: "initial-package-stopped-states-com.motorola.camera2",
+    owner: "motorola",
+    sub_dir: "sysconfig",
+    src: "etc/sysconfig/initial-package-stopped-states-com.motorola.camera2.xml",
+    filename_from_src: true,
+    product_specific: true,
+}
+
+prebuilt_etc {
+    name: "init.motcamera2.lens",
+    owner: "motorola",
+    sub_dir: "init",
+    src: "etc/init/init.motcamera2.lens.rc",
+    filename_from_src: true,
+    product_specific: true,
+}
+
+prebuilt_etc {
+    name: "init.moto_package_name.motcamera2",
+    owner: "motorola",
+    sub_dir: "init",
+    src: "etc/init/init.moto_package_name.motcamera2.rc",
+    filename_from_src: true,
+    product_specific: true,
+}
+
+prebuilt_etc {
+    name: "public.libraries-moto",
+    owner: "motorola",
+    sub_dir: "",
+    src: "etc/public.libraries/public.libraries-moto.txt",
+    filename_from_src: true,
+    required: [
+        "libenginepostproc.moto",
+    ],
+    system_ext_specific: true,
+}
+
+prebuilt_etc {
+    name: "public.libraries-motocamera",
+    owner: "motorola",
+    sub_dir: "",
+    src: "etc/public.libraries/public.libraries-motocamera.txt",
+    filename_from_src: true,
+    required: [
+        "libmcf_native_window_helper.motocamera",
+    ],
+    system_ext_specific: true,
+}

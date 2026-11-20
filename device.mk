@@ -42,8 +42,13 @@ PRODUCT_PACKAGES += \
     SettingsResLiber \
     SystemUIResLiber
 
-PRODUCT_PACKAGES += \
-    Aperture
+# Moto Camera 2
+$(call inherit-product, $(LOCAL_PATH)/motocamera2/motocamera2.mk)
+
+# Override stock AOSP camera & Aperture
+PRODUCT_PACKAGES_REMOVE += \
+    Aperture \
+    Camera2
 
 # Audio
 PRODUCT_PACKAGES += \
