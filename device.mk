@@ -23,11 +23,6 @@ $(call inherit-product, device/motorola/sm6150-common/common.mk)
 # Get non-open-source specific aspects
 $(call inherit-product, vendor/motorola/liber/liber-vendor.mk)
 
-# Dolby
-# The vendored runtime provides both the DAP effects and the Codec2 store.
-# It also builds LunarisDolby, so it must not be added here as well.
-$(call inherit-product, $(LOCAL_PATH)/dolby/dolby.mk)
-
 # Properties
 -include $(LOCAL_PATH)/properties.mk
 
