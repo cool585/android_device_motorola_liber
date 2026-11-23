@@ -77,7 +77,7 @@ PRODUCT_PACKAGES += \
 
 # Lights
 PRODUCT_PACKAGES += \
-    android.hardware.lights-service.liber
+    android.hardware.lights-service.sm6150
 
 # IDC
 PRODUCT_COPY_FILES += \
