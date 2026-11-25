@@ -46,15 +46,6 @@ blob_fixups: blob_fixups_user_type = {
         .binary_regex_replace(b'camera.mot.is.coming.cts', b'vendor.camera.coming.cts'),
     'vendor/lib64/sensors.moto.so': blob_fixup()
         .add_needed('libbase_shim.so'),
-    'vendor/lib/hw/audio.primary.sm6150.so': blob_fixup()
-        .replace_needed(
-            'android.hardware.power-V1-ndk_platform.so',
-            'android.hardware.power-V1-ndk.so',
-        )
-        .replace_needed('libtinyalsa.so', 'libtinyalsa_moto.so'),
-    ('vendor/lib/soundfx/libmmieffectswrapper.so',
-     'vendor/lib/soundfx/libspeakerbundle.so'): blob_fixup()
-        .replace_needed('libtinyalsa.so', 'libtinyalsa_moto.so'),
 }  # fmt: skip
 
 module = ExtractUtilsModule(
